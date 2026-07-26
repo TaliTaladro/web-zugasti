@@ -119,16 +119,34 @@
   .hero{
     position: relative;
     min-height: 100svh;
-    background: radial-gradient(120% 90% at 20% 0%, var(--iron-800), var(--iron-950) 65%);
+    background-image: url('assets/img/portada.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     color: var(--canvas);
     display:flex; align-items:center;
     overflow: hidden;
   }
-  .hero .wrap{
-    display:grid; grid-template-columns: 1.05fr 0.95fr; gap: 2rem; align-items:center;
-    padding-top: 5rem;
+  .hero::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:
+      linear-gradient(108deg, rgba(22,19,15,.82) 0%, rgba(22,19,15,.6) 35%, rgba(22,19,15,.32) 58%, rgba(22,19,15,.12) 100%),
+      linear-gradient(180deg, rgba(22,19,15,.3) 0%, rgba(22,19,15,.06) 45%, rgba(22,19,15,.55) 100%);
+    pointer-events:none;
   }
-  .hero-eyebrow{ color: var(--wire); margin-bottom:1.6rem; }
+  .hero .wrap,
+  .hero .scrollcue{
+    position: relative;
+    z-index: 1;
+  }
+  .hero .wrap{
+    display:grid; grid-template-columns: 1fr; gap: 2rem; align-items:center;
+    padding-top: 5rem;
+    padding-bottom: 3rem;
+  }
+  .hero-eyebrow{ color: var(--canvas-dim); margin-bottom:1.6rem; }
   .hero h1{
     font-size: clamp(3rem, 8vw, 6.4rem);
     line-height: 0.94;
@@ -140,30 +158,29 @@
     margin-top: 1.6rem;
     max-width: 34ch;
     font-size: 1.12rem;
-    color: var(--wire);
+    color: var(--canvas);
     font-weight: 400;
+    text-shadow: 0 1px 0 rgba(0,0,0,.16);
   }
   .hero .years{
-    font-family: var(--mono); color: var(--wire-dim); margin-top: 2.2rem; font-size:0.82rem; letter-spacing:0.1em;
+    font-family: var(--mono); color: var(--canvas-dim); margin-top: 2.2rem; font-size:0.82rem; letter-spacing:0.1em;
   }
-  .hero-figure{ position:relative; }
-  .hero-figure svg{ width:100%; height:auto; overflow:visible; }
-  .wire-path{
-    fill:none; stroke: var(--wire); stroke-width: 1.6;
-    stroke-linecap: round; stroke-linejoin: round;
-  }
-  .wire-path.accent{ stroke: var(--oxide); }
   .scrollcue{
     position:absolute; bottom: 2.4rem; left: 50%; transform: translateX(-50%);
-    font-family: var(--mono); font-size: 0.68rem; letter-spacing:0.14em; color: var(--wire-dim);
+    font-family: var(--mono); font-size: 0.68rem; letter-spacing:0.14em; color: var(--canvas-dim);
     display:flex; flex-direction:column; align-items:center; gap:0.5rem;
   }
-  .scrollcue .line{ width:1px; height: 34px; background: linear-gradient(var(--wire-dim), transparent); animation: pulse 2.2s ease-in-out infinite; }
+  .scrollcue .line{ width:1px; height: 34px; background: linear-gradient(var(--canvas-dim), transparent); animation: pulse 2.2s ease-in-out infinite; }
   @keyframes pulse{ 0%,100%{ opacity:.3 } 50%{ opacity:1 } }
 
   @media (max-width: 860px){
-    .hero .wrap{ grid-template-columns: 1fr; }
-    .hero-figure{ order:-1; max-width: 260px; margin-inline:auto; opacity:0.85; }
+    .hero{ background-position: 58% center; }
+    .hero::before{
+      background:
+        linear-gradient(150deg, rgba(22,19,15,.84) 0%, rgba(22,19,15,.62) 40%, rgba(22,19,15,.3) 72%, rgba(22,19,15,.16) 100%),
+        linear-gradient(180deg, rgba(22,19,15,.55) 0%, rgba(22,19,15,.08) 44%, rgba(22,19,15,.7) 100%);
+    }
+    .hero .wrap{ padding-top: 6.2rem; }
   }
 
   /* ============ SECTIONS shared ============ */
@@ -389,13 +406,6 @@
       <h1>José<br><em>Zugasti</em></h1>
       <p class="tagline">Durante medio siglo dio la vuelta al lienzo: en lugar de pintar sobre él, empezó a sacarle las formas con alambre, hasta dejar solo el gesto, suspendido en el aire.</p>
       <div class="years">1952 — 2024 &nbsp;·&nbsp; Donostia&#8211;San Sebastián</div>
-    </div>
-    <div class="hero-figure" aria-hidden="true">
-      <svg viewBox="0 0 400 480" fill="none">
-        <path class="wire-path" id="figA" d="M120 40 C 60 90, 40 160, 90 210 C 130 250, 70 260, 60 330 C 50 400, 120 440, 190 420 C 250 400, 210 340, 260 300 C 320 250, 340 170, 290 110 C 250 62, 170 55, 120 40 Z"/>
-        <path class="wire-path accent" id="figB" d="M150 120 C 190 100, 240 120, 250 170 C 260 220, 210 230, 220 280 C 228 320, 280 320, 300 360"/>
-        <path class="wire-path" id="figC" d="M90 260 C 130 290, 120 340, 170 360 C 210 376, 230 350, 270 360"/>
-      </svg>
     </div>
   </div>
   <div class="scrollcue"><span class="line"></span>DESCUBRIR</div>
@@ -715,19 +725,6 @@
     navLinks.classList.remove('open');
     navToggle.textContent = 'MENÚ';
   }));
-
-  // Wire draw-in animation for hero figure
-  ['figA','figB','figC'].forEach((id, i) => {
-    const path = document.getElementById(id);
-    if(!path) return;
-    const len = path.getTotalLength();
-    path.style.strokeDasharray = len;
-    path.style.strokeDashoffset = len;
-    path.animate(
-      [{ strokeDashoffset: len }, { strokeDashoffset: 0 }],
-      { duration: 1800, delay: i * 260, easing: 'cubic-bezier(.65,0,.15,1)', fill: 'forwards' }
-    );
-  });
 
   // Scroll reveal
   const io = new IntersectionObserver((entries) => {
