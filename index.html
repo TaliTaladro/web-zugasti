@@ -3,696 +3,95 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>José Zugasti — Escultor</title>
-<meta name="description" content="José Zugasti (Eibar, 1952 – Donostia, 2024). Escultor guipuzcoano que extrajo las formas del lienzo con alambre.">
+<title>José Zugasti · Escultor</title>
+<meta name="description" content="José Zugasti (Eibar, 1952 - Donostia-San Sebastián, 2024). Sitio público sobre su legado artístico.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,450;0,9..144,600;1,9..144,400;1,9..144,500&family=Archivo:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<style>
-
-  /* ============ TOKENS ============ */
-  :root{
-    --iron-950: #16130f;
-    --iron-900: #1d1912;
-    --iron-800: #2c261c;
-    --wire: #b9bbb2;
-    --wire-dim: #8a8c84;
-    --canvas: #ece6d4;
-    --canvas-dim: #ded5bd;
-    --ink: #221d16;
-    --oxide: #a1512c;
-    --oxide-dim: #7c4025;
-    --pine: #3c4c40;
-
-    --display: 'Fraunces', serif;
-    --body: 'Archivo', sans-serif;
-    --mono: 'IBM Plex Mono', monospace;
-
-    --wrap: min(1180px, 92vw);
-  }
-
-  *{ box-sizing: border-box; }
-  html{ scroll-behavior: smooth; }
-  body{
-    margin:0;
-    background: var(--canvas);
-    color: var(--ink);
-    font-family: var(--body);
-    font-size: 16px;
-    line-height: 1.6;
-    -webkit-font-smoothing: antialiased;
-  }
-  img{ max-width:100%; display:block; }
-  a{ color: inherit; }
-  h1,h2,h3{ font-family: var(--display); font-weight: 450; margin: 0; }
-  .wrap{ width: var(--wrap); margin-inline: auto; }
-  .eyebrow{
-    font-family: var(--mono);
-    font-size: 0.72rem;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.6em;
-  }
-  .eyebrow::before{
-    content:"";
-    width: 22px; height: 1px;
-    background: currentColor;
-    display: inline-block;
-  }
-
-  /* Placeholder de imagen pendiente (scaffold) */
-  .ph{
-    border: 1px dashed var(--wire-dim);
-    background:
-      repeating-linear-gradient(45deg, transparent, transparent 9px, rgba(138,140,132,.08) 9px, rgba(138,140,132,.08) 10px);
-    display:flex; flex-direction:column; align-items:center; justify-content:center;
-    text-align:center; gap:0.4rem; padding:1.2rem;
-    color: var(--wire-dim); font-family: var(--mono); font-size:0.68rem; letter-spacing:0.04em;
-    min-height: 150px;
-  }
-  .ph .path{ color: var(--oxide-dim); font-size:0.64rem; }
-  .ph svg{ width:26px; height:26px; opacity:0.6; }
-
-  @media (prefers-reduced-motion: reduce){
-    *{ animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; scroll-behavior: auto !important; }
-  }
-
-  /* ============ NAV ============ */
-  header.site{
-    position: fixed; inset: 0 0 auto 0; z-index: 50;
-    display:flex; align-items:center; justify-content: space-between;
-    padding: 1.1rem clamp(1.2rem, 4vw, 3rem);
-    color: var(--wire);
-    mix-blend-mode: difference;
-  }
-  .mark{
-    display:flex; align-items:center; gap:0.7rem;
-    font-family: var(--mono); font-size:0.78rem; letter-spacing:0.08em;
-    text-decoration:none; color: inherit;
-  }
-  .mark svg{ width:26px; height:26px; }
-  nav.links{ display:flex; gap: clamp(0.8rem,1.8vw,1.7rem); font-family: var(--mono); font-size:0.72rem; letter-spacing:0.05em; text-transform: uppercase; }
-  nav.links a{ text-decoration:none; opacity:0.85; position:relative; }
-  nav.links a::after{
-    content:""; position:absolute; left:0; right:0; bottom:-5px; height:1px;
-    background: currentColor; transform: scaleX(0); transform-origin: left;
-    transition: transform .35s ease;
-  }
-  nav.links a:hover::after{ transform: scaleX(1); }
-  .nav-toggle{ display:none; background:none; border:1px solid currentColor; color:inherit; font-family:var(--mono); font-size:0.7rem; padding:0.4rem 0.7rem; letter-spacing:0.08em; cursor:pointer; }
-
-  @media (max-width: 880px){
-    nav.links{
-      position: fixed; inset: 0; background: var(--iron-950); color: var(--wire);
-      flex-direction: column; justify-content:center; align-items:flex-start;
-      padding: 2rem clamp(1.4rem,6vw,3rem); gap: 1.4rem; font-size: 1rem;
-      transform: translateY(-100%); transition: transform .45s cubic-bezier(.7,0,.2,1);
-      mix-blend-mode: normal;
-    }
-    nav.links.open{ transform: translateY(0); }
-    .nav-toggle{ display:inline-block; }
-  }
-
-  /* ============ HERO ============ */
-  .hero{
-    position: relative;
-    min-height: 100svh;
-    background-image: url('assets/img/portada.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    color: var(--canvas);
-    display:flex; align-items:center;
-    overflow: hidden;
-  }
-  .hero::before{
-    content:"";
-    position:absolute;
-    inset:0;
-    background:
-      linear-gradient(108deg, rgba(22,19,15,.82) 0%, rgba(22,19,15,.6) 35%, rgba(22,19,15,.32) 58%, rgba(22,19,15,.12) 100%),
-      linear-gradient(180deg, rgba(22,19,15,.3) 0%, rgba(22,19,15,.06) 45%, rgba(22,19,15,.55) 100%);
-    pointer-events:none;
-  }
-  .hero .wrap,
-  .hero .scrollcue{
-    position: relative;
-    z-index: 1;
-  }
-  .hero .wrap{
-    display:grid; grid-template-columns: 1fr; gap: 2rem; align-items:center;
-    padding-top: 5rem;
-    padding-bottom: 3rem;
-  }
-  .hero-eyebrow{ color: var(--canvas-dim); margin-bottom:1.6rem; }
-  .hero h1{
-    font-size: clamp(3rem, 8vw, 6.4rem);
-    line-height: 0.94;
-    letter-spacing: -0.01em;
-    color: var(--canvas);
-  }
-  .hero h1 em{ font-style: italic; color: var(--oxide); font-weight:400; }
-  .hero .tagline{
-    margin-top: 1.6rem;
-    max-width: 34ch;
-    font-size: 1.12rem;
-    color: var(--canvas);
-    font-weight: 400;
-    text-shadow: 0 1px 0 rgba(0,0,0,.16);
-  }
-  .hero .years{
-    font-family: var(--mono); color: var(--canvas-dim); margin-top: 2.2rem; font-size:0.82rem; letter-spacing:0.1em;
-  }
-  .scrollcue{
-    position:absolute; bottom: 2.4rem; left: 50%; transform: translateX(-50%);
-    font-family: var(--mono); font-size: 0.68rem; letter-spacing:0.14em; color: var(--canvas-dim);
-    display:flex; flex-direction:column; align-items:center; gap:0.5rem;
-  }
-  .scrollcue .line{ width:1px; height: 34px; background: linear-gradient(var(--canvas-dim), transparent); animation: pulse 2.2s ease-in-out infinite; }
-  @keyframes pulse{ 0%,100%{ opacity:.3 } 50%{ opacity:1 } }
-
-  @media (max-width: 860px){
-    .hero{ background-position: 58% center; }
-    .hero::before{
-      background:
-        linear-gradient(150deg, rgba(22,19,15,.84) 0%, rgba(22,19,15,.62) 40%, rgba(22,19,15,.3) 72%, rgba(22,19,15,.16) 100%),
-        linear-gradient(180deg, rgba(22,19,15,.55) 0%, rgba(22,19,15,.08) 44%, rgba(22,19,15,.7) 100%);
-    }
-    .hero .wrap{ padding-top: 6.2rem; }
-  }
-
-  /* ============ SECTIONS shared ============ */
-  section{ padding: clamp(4.5rem,9vw,8rem) 0; }
-  .section-head{ max-width: 62ch; margin-bottom: clamp(2.4rem,5vw,4rem); }
-  .section-head .eyebrow{ color: var(--oxide-dim); margin-bottom: 1.1rem; }
-  .section-head h2{ font-size: clamp(2.1rem, 4.4vw, 3.2rem); }
-  .section-head .num{ font-family: var(--mono); font-size:0.72rem; color: var(--wire-dim); }
-  .reveal{ opacity:0; transform: translateY(26px); transition: opacity .8s ease, transform .8s cubic-bezier(.2,.7,.2,1); }
-  .reveal.in{ opacity:1; transform: translateY(0); }
-  .todo{ font-family: var(--mono); font-size: 0.72rem; font-style:italic; margin-top:0.8rem; }
-
-  /* ============ 1 · BIO ============ */
-  .bio{ background: var(--canvas); }
-  .bio .grid{ display:grid; grid-template-columns: 1.5fr 1fr; gap: clamp(2rem,5vw,4.5rem); align-items:start; }
-  .bio p{ margin: 0 0 1.3rem; font-size:1.04rem; color: #3a352a; }
-  .bio p.lead{
-    font-family: var(--display); font-style: italic; font-weight:400;
-    font-size: clamp(1.35rem,2.4vw,1.7rem); color: var(--ink); line-height:1.45;
-    margin-bottom: 1.8rem;
-  }
-  .bio-side{ position:sticky; top: 6rem; }
-  .portrait{ border: 1px solid var(--canvas-dim); padding: 0.5rem; background: #fff; }
-  .portrait img{
-    width: 100%;
-    aspect-ratio: 4 / 3;
-    object-fit: cover;
-  }
-  .portrait figcaption{
-    font-family: var(--mono); font-size: 0.7rem; letter-spacing:0.05em;
-    padding: 0.7rem 0.3rem 0.2rem; color:#7c7461;
-  }
-  .facts{ margin-top: 1.6rem; border-top: 1px solid var(--canvas-dim); padding-top: 1.4rem; }
-  .facts dt{ font-family: var(--mono); font-size:0.7rem; letter-spacing:0.08em; text-transform:uppercase; color: var(--oxide-dim); margin-top:0.9rem; }
-  .facts dd{ margin: 0.2rem 0 0; font-size: 0.95rem; }
-
-  @media (max-width: 860px){
-    .bio .grid{ grid-template-columns: 1fr; }
-    .bio-side{ position:static; max-width: 340px; }
-  }
-
-  /* ============ 2 · OBRA (por categorías) ============ */
-  .obra{ background: var(--iron-950); color: var(--canvas); }
-  .obra .section-head .eyebrow{ color: var(--wire-dim); }
-  .obra .section-head h2{ color: var(--canvas); }
-  .obra .section-head .num{ color: var(--wire-dim); }
-  .cats{ display:grid; grid-template-columns: repeat(auto-fit, minmax(300px,1fr)); gap: 1px; background: var(--iron-800); border: 1px solid var(--iron-800); }
-  .cat{ background: var(--iron-950); padding: 2rem 1.8rem; display:flex; flex-direction:column; }
-  .cat .icon{ width: 50px; height:50px; margin-bottom: 1.3rem; }
-  .cat .icon svg{ width:100%; height:100%; }
-  .cat .icon path{ fill:none; stroke: var(--oxide); stroke-width:1.6; stroke-linecap:round; stroke-linejoin:round; }
-  .cat h3{ font-size: 1.35rem; font-style: italic; font-weight:500; color: var(--canvas); }
-  .cat .kind{ font-family: var(--mono); font-size:0.66rem; letter-spacing:0.08em; color: var(--wire-dim); margin: 0.45rem 0 1rem; text-transform: uppercase; }
-  .cat p{ font-size:0.92rem; color: var(--wire); margin:0 0 1.2rem; flex-grow:1; }
-  .cat .cat-media{
-    margin-top: auto;
-    width: 100%;
-    aspect-ratio: 4 / 3;
-    object-fit: cover;
-    border: 1px solid var(--iron-800);
-  }
-  .cat .ph{ margin-top:auto; min-height:120px; }
-  .cat a.ref{
-    align-self:flex-start; display:inline-flex; align-items:center; gap:0.4em; margin-top:1rem;
-    font-family: var(--mono); font-size:0.68rem; letter-spacing:0.05em; text-transform:uppercase;
-    color: var(--oxide); text-decoration:none; border-bottom: 1px solid transparent; padding-bottom:1px;
-    transition: border-color .25s ease;
-  }
-  .cat a.ref:hover{ border-color: var(--oxide); }
-  .cat a.ref::after{ content:"→"; display:inline-block; transition: transform .25s ease; }
-  .cat a.ref:hover::after{ transform: translateX(3px); }
-
-  /* ============ 3 · PREMIOS ============ */
-  .premios{ background: var(--canvas); }
-  .timeline{ border-top: 1px solid var(--canvas-dim); }
-  .tl-row{
-    display:grid; grid-template-columns: 110px 1fr auto; gap: 1.4rem; align-items:center;
-    padding: 1.3rem 0; border-bottom: 1px solid var(--canvas-dim);
-  }
-  .tl-row .yr{ font-family: var(--mono); font-size:0.95rem; color: var(--oxide-dim); }
-  .tl-row .ev{ font-size: 1rem; }
-  .tl-row .ev .tag{ font-family: var(--mono); font-size:0.68rem; color: var(--wire-dim); text-transform:uppercase; letter-spacing:0.06em; display:block; margin-top:0.25rem; }
-  .tl-row .thumb{ width:76px; height:76px; min-height:0; padding:0.4rem; }
-  .tl-row .thumb-media{
-    width: 76px;
-    height: 76px;
-    object-fit: cover;
-    border: 1px solid var(--canvas-dim);
-  }
-  .tl-row .thumb svg{ width:18px; height:18px; }
-
-  .colecciones{ margin-top: clamp(3rem,6vw,4.5rem); }
-  .colecciones h3{ font-size:1.2rem; font-style:italic; font-weight:500; margin-bottom:1.2rem; }
-  .chips{ display:flex; flex-wrap:wrap; gap: 0.6rem; }
-  .chip{ font-family: var(--mono); font-size:0.74rem; border:1px solid var(--pine); color: var(--pine); padding: 0.45rem 0.85rem; letter-spacing:0.02em; }
-
-  @media (max-width: 620px){
-    .tl-row{ grid-template-columns: 80px 1fr; }
-    .tl-row .thumb{ display:none; }
-  }
-
-  /* ============ 4 · EXPOSICIONES ============ */
-  .expos{ background: var(--iron-950); color: var(--canvas); }
-  .expos .section-head .eyebrow{ color: var(--wire-dim); }
-  .expos .section-head h2{ color: var(--canvas); }
-  .expos .section-head .num{ color: var(--wire-dim); }
-  .expo-grid{ display:grid; grid-template-columns: 1.1fr 0.9fr; gap: clamp(2rem,5vw,4rem); align-items:start; }
-  .expo-col h3{ font-size:1.15rem; font-style:italic; font-weight:500; color:var(--canvas); margin-bottom:1.1rem; }
-  .expo-list{ list-style:none; margin:0; padding:0; border-top:1px solid var(--iron-800); }
-  .expo-list li{ display:grid; grid-template-columns: 92px 1fr; gap:1rem; padding:0.85rem 0; border-bottom:1px solid var(--iron-800); font-size:0.95rem; }
-  .expo-list li .y{ font-family:var(--mono); font-size:0.82rem; color:var(--wire-dim); }
-  .expo-list li .p{ color:var(--wire); }
-  .expo-list li .p b{ color:var(--canvas); font-weight:500; }
-  .expo-feature{ margin-top:1.4rem; }
-  .expo-feature img{
-    width: 100%;
-    aspect-ratio: 16 / 10;
-    object-fit: cover;
-    border: 1px solid var(--iron-800);
-  }
-  .expo-feature figcaption{ font-family:var(--mono); font-size:0.68rem; color:var(--wire-dim); margin-top:0.6rem; }
-
-  @media (max-width: 780px){ .expo-grid{ grid-template-columns:1fr; } }
-
-  /* ============ 5 · PRENSA ============ */
-  .prensa{ background: var(--canvas); }
-  .press-list{ display:grid; grid-template-columns: repeat(auto-fit, minmax(260px,1fr)); gap: 1.1rem; }
-  .press-card{
-    border:1px solid var(--canvas-dim); background:#fff; padding:1.4rem 1.3rem;
-    display:flex; flex-direction:column; gap:0.5rem; text-decoration:none; color:inherit;
-    transition: border-color .25s ease, transform .25s ease;
-  }
-  .press-card .press-thumb{
-    width: 100%;
-    aspect-ratio: 4 / 3;
-    object-fit: cover;
-    border: 1px solid var(--canvas-dim);
-    margin-bottom: 0.4rem;
-  }
-  .press-card:hover{ border-color: var(--oxide); transform: translateY(-2px); }
-  .press-card .src{ font-family:var(--mono); font-size:0.66rem; letter-spacing:0.08em; text-transform:uppercase; color:var(--oxide-dim); }
-  .press-card .head{ font-family:var(--display); font-style:italic; font-size:1.1rem; }
-  .press-card .dek{ font-size:0.88rem; color:#5a5344; }
-
-  /* ============ 6 · TALLER ============ */
-  .taller{ background: var(--canvas-dim); }
-  .taller .grid{ display:grid; grid-template-columns: 1fr 1fr; gap: clamp(2rem,5vw,4rem); align-items:center; }
-  .taller h2{ font-size: clamp(2rem,4.4vw,3rem); }
-  .taller p{ max-width: 42ch; margin: 1.2rem 0; color:#3a352a; }
-  .taller .cta{
-    display:inline-flex; align-items:center; gap:0.5em; margin-top:0.4rem;
-    font-family:var(--mono); font-size:0.78rem; letter-spacing:0.04em; text-transform:uppercase;
-    color:var(--pine); text-decoration:none; border-bottom:1px solid var(--pine); padding-bottom:2px;
-  }
-  .taller figure{
-    margin: 0;
-  }
-  .taller figure img{
-    width: 100%;
-    aspect-ratio: 4 / 3;
-    object-fit: cover;
-    border: 1px solid rgba(34,29,22,0.12);
-  }
-  .taller .ph{ min-height:280px; }
-  @media (max-width: 780px){ .taller .grid{ grid-template-columns:1fr; } }
-
-  /* ============ CONTACTO / FOOTER ============ */
-  .contacto{ background: var(--iron-950); color: var(--canvas); }
-  .contacto .wrap{ display:grid; grid-template-columns: 1.2fr 1fr; gap: 3rem; align-items:end; }
-  .contacto h2{ font-size: clamp(2.2rem,5vw,3.6rem); color: var(--canvas); max-width: 14ch; }
-  .contacto .lead-line{ color: var(--wire); margin-top:1.2rem; max-width: 40ch; }
-  .social{ display:flex; flex-direction:column; gap:0; border-top:1px solid var(--iron-800); }
-  .social a{
-    display:flex; align-items:center; justify-content:space-between;
-    text-decoration:none; color: var(--canvas);
-    padding: 1.05rem 0; border-bottom: 1px solid var(--iron-800);
-    font-family: var(--mono); font-size:0.86rem; letter-spacing:0.03em;
-    transition: color .25s ease, padding-left .25s ease;
-  }
-  .social a:hover{ color: var(--oxide); padding-left: 0.4rem; }
-  .social a span.small{ color: var(--wire-dim); font-size:0.72rem; }
-
-  @media (max-width: 860px){
-    .contacto .wrap{ grid-template-columns: 1fr; }
-  }
-
-  footer.credit{
-    background: var(--iron-950); color: var(--wire-dim);
-    border-top: 1px solid var(--iron-800);
-    padding: 1.6rem clamp(1.2rem,4vw,3rem);
-    display:flex; justify-content:space-between; flex-wrap:wrap; gap:0.6rem;
-    font-family: var(--mono); font-size:0.68rem; letter-spacing:0.05em;
-  }
-
-</style>
+<link rel="stylesheet" href="assets/site.css">
 </head>
 <body>
 
 <header class="site">
-  <a href="#top" class="mark">
+  <a href="index.html" class="mark">
     <svg viewBox="0 0 40 40" aria-hidden="true">
       <path d="M6 30 C 10 8, 16 8, 20 20 C 24 32, 30 32, 34 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
     </svg>
     J. ZUGASTI
   </a>
   <nav class="links" id="navLinks">
-    <a href="#bio">Biografía</a>
-    <a href="#obra">Obra</a>
-    <a href="#premios">Premios</a>
-    <a href="#expos">Exposiciones</a>
-    <a href="#prensa">Prensa</a>
-    <a href="#taller">Taller</a>
+    <a href="index.html" class="is-active">Inicio</a>
+    <a href="biografia.html">Biografía</a>
+    <a href="obra.html">Obra</a>
+    <a href="premios.html">Premios</a>
+    <a href="exposiciones.html">Exposiciones</a>
+    <a href="prensa.html">Prensa</a>
+    <a href="taller.html">Taller</a>
     <a href="#contacto">Contacto</a>
   </nav>
-  <button class="nav-toggle" id="navToggle" aria-label="Abrir menú">MENÚ</button>
+  <button class="nav-toggle" id="navToggle" aria-label="Abrir menú">MENU</button>
 </header>
 
-<!-- ============ HERO ============ -->
 <section class="hero" id="top">
   <div class="wrap">
     <div class="hero-copy">
       <div class="eyebrow hero-eyebrow">Escultor · Eibar</div>
       <h1>José<br><em>Zugasti</em></h1>
       <p class="tagline">Durante medio siglo dio la vuelta al lienzo: en lugar de pintar sobre él, empezó a sacarle las formas con alambre, hasta dejar solo el gesto, suspendido en el aire.</p>
-      <div class="years">1952 — 2024 &nbsp;·&nbsp; Donostia&#8211;San Sebastián</div>
+      <div class="years">1952 - 2024 · Donostia-San Sebastián</div>
     </div>
   </div>
   <div class="scrollcue"><span class="line"></span>DESCUBRIR</div>
 </section>
 
-<!-- ============ 1 · BIOGRAFÍA ============ -->
-<section class="bio reveal" id="bio">
-  <div class="wrap grid">
-    <div>
-      <div class="section-head">
-        <div class="eyebrow">01 · Biografía</div>
-        <h2>Del gesto figurativo<br>a la línea en el aire</h2>
-      </div>
-
-      <p class="lead">Nacido en Eibar en 1952, en pleno corazón industrial de Gipuzkoa, Zugasti convirtió el oficio del metal en un lenguaje propio de la escultura contemporánea vasca.</p>
-
-      <p>En 1970 se trasladó a Madrid para formarse en la Escuela Superior de Bellas Artes de San Fernando. Aquellos primeros años los dedicó a la pintura: escenas urbanas de la capital y paisajes costeros —los acantilados de Lekeitio le acompañarían como motivo recurrente— resueltos con un trazo de raíz figurativa.</p>
-
-      <p>En 1980 regresó al País Vasco y se instaló en Donostia-San Sebastián, ciudad donde desarrollaría el resto de su carrera. La década siguiente marcó un giro decisivo: abandonó la estampa de estilo modiglianesco por una pintura matérica centrada en la figura humana y el paso del tiempo. De ahí pasó a interesarse por cómo la forma ocupa y se sostiene en el espacio, un camino que le llevó progresivamente a la abstracción —y, con ella, a su seña de identidad: extraer la línea del lienzo y dejarla en pie, sola, hecha de alambre.</p>
-
-      <p>Expuso individualmente desde 1981, primero en la Caja Laboral de Gernika y después en salas de Pamplona, Hondarribia, Errenteria, Donostia, Bilbao, Salamanca, Madrid y Colonia. Participó también en citas colectivas como ARCO Madrid (1992, 1997 y 1998) y las bienales de blanco y negro de comienzos de los 80. En los últimos años de su trayectoria retomó la figuración, pero leída ya desde la abstracción que la precedió: una figuración conceptual, no un regreso atrás.</p>
-
-      <p>Compaginó la escultura con la ilustración gráfica, colaborando con publicaciones como <em>Cuadernos de Alzate</em>. En 2024 firmó el cartel oficial de la Quincena Musical de San Sebastián, uno de los festivales más longevos de música clásica de Europa. Falleció el 14 de diciembre de 2024 en Donostia-San Sebastián, a los 72 años.</p>
-    </div>
-
-    <aside class="bio-side">
-      <figure class="portrait">
-        <img src="assets/img/retrato.jpg" alt="José Zugasti en su taller" loading="lazy" decoding="async">
-        <figcaption>José Zugasti en su taller</figcaption>
-      </figure>
-      <dl class="facts">
-        <dt>Nacimiento</dt>
-        <dd>Eibar, Gipuzkoa — 1952</dd>
-        <dt>Formación</dt>
-        <dd>Escuela Superior de Bellas Artes de San Fernando, Madrid</dd>
-        <dt>Residencia</dt>
-        <dd>Donostia&#8211;San Sebastián, desde 1980</dd>
-        <dt>Disciplinas</dt>
-        <dd>Escultura en alambre y metal, pintura, litografía, ilustración gráfica</dd>
-        <dt>Fallecimiento</dt>
-        <dd>Donostia&#8211;San Sebastián, 14 de diciembre de 2024</dd>
-      </dl>
-    </aside>
-  </div>
-</section>
-
-<!-- ============ 2 · OBRA DESTACADA ============ -->
-<section class="obra reveal" id="obra">
+<section class="home-nav reveal">
   <div class="wrap">
     <div class="section-head">
-      <div class="eyebrow">02 · Obra destacada</div>
-      <h2>Un recorrido por disciplinas</h2>
-      <p class="todo" style="color:var(--wire-dim);">Fichas por categoría, a la espera de las imágenes de la familia. Cada bloque admite varias piezas cuando lleguen las fotografías.</p>
+      <div class="eyebrow">Navegación por apartados</div>
+      <h2>Explora cada bloque en su propia página</h2>
     </div>
 
-    <div class="cats">
-
-      <article class="cat">
-        <div class="icon"><svg viewBox="0 0 60 60"><path d="M8 44 C 18 20, 26 40, 34 20 C 40 6, 50 16, 52 30"/></svg></div>
-        <h3>Dibujos</h3>
-        <div class="kind">Papel · trazo figurativo</div>
-        <p>El punto de partida: la escena urbana, el paisaje costero y la figura resueltos con un trazo de raíz figurativa. Base de todo el recorrido posterior.</p>
-        <img class="cat-media" src="assets/img/obra/dibujos-01.jpg" alt="Obra de la categoría Dibujos" loading="lazy" decoding="async">
-      </article>
-
-      <article class="cat">
-        <div class="icon"><svg viewBox="0 0 60 60"><path d="M10 46 L 30 14 L 50 46 M 30 14 L 30 46"/></svg></div>
-        <h3>Evolución a la tercera dimensión</h3>
-        <div class="kind">Del plano al espacio</div>
-        <p>El giro decisivo de su obra: la línea abandona el lienzo y se sostiene sola en el aire. La abstracción como método para pensar cómo la forma ocupa el espacio.</p>
-        <img class="cat-media" src="assets/img/obra/evolucion-01.jpg" alt="Obra de la categoría Evolución a la tercera dimensión" loading="lazy" decoding="async">
-      </article>
-
-      <article class="cat">
-        <div class="icon"><svg viewBox="0 0 60 60"><path d="M12 12 h36 v36 h-36 z M12 24 h36 M20 12 v36"/></svg></div>
-        <h3>Litografías</h3>
-        <div class="kind">Obra gráfica</div>
-        <p>Su trabajo sobre la estampa y la edición, en paralelo a la escultura y la ilustración para publicaciones como <em>Cuadernos de Alzate</em>.</p>
-        <img class="cat-media" src="assets/img/obra/litografias-01.jpg" alt="Obra de la categoría Litografías" loading="lazy" decoding="async">
-      </article>
-
-      <article class="cat">
-        <div class="icon"><svg viewBox="0 0 60 60"><path d="M8 40 C 14 14, 30 10, 34 24 C 38 38, 50 30, 52 16"/></svg></div>
-        <h3>Escultura</h3>
-        <div class="kind">Alambre y metal</div>
-        <p>El núcleo de su lenguaje maduro: el gesto extraído del papel y rehecho en alambre y metal, entre la figuración conceptual y la abstracción.</p>
-        <img class="cat-media" src="assets/img/obra/escultura-01.jpg" alt="Obra de la categoría Escultura" loading="lazy" decoding="async">
-      </article>
-
-      <article class="cat">
-        <div class="icon"><svg viewBox="0 0 60 60"><path d="M12 50 h36 M18 50 V26 l12 -12 12 12 V50"/></svg></div>
-        <h3>Obra pública</h3>
-        <div class="kind">Espacio urbano</div>
-        <p>Piezas instaladas en la calle: «A la deriva» en la ría de Bilbao (concurso Bilbao Ría 2000, 1997), «Txirrindularia» en Eibar y «Formen Dantza» en la plaza de Ego-Gain.</p>
-        <img class="cat-media" src="assets/img/obra/publica-quincena-2024.jpg" alt="Presentación del cartel de la Quincena Musical de 2024" loading="lazy" decoding="async">
-        <a class="ref" href="https://aunamendi.eusko-ikaskuntza.eus/es/zugasti-arizmendiarrieta-jose/ar-152484/" target="_blank" rel="noopener">Auñamendi Entziklopedia</a>
-      </article>
-
-    </div>
-  </div>
-</section>
-
-<!-- ============ 3 · PREMIOS Y RECONOCIMIENTOS ============ -->
-<section class="premios reveal" id="premios">
-  <div class="wrap">
-    <div class="section-head">
-      <div class="eyebrow">03 · Premios y reconocimientos</div>
-      <h2>Una trayectoria premiada</h2>
-    </div>
-
-    <div class="timeline">
-      <div class="tl-row"><div class="yr">1980</div><div class="ev">Primer Premio, V Bienal Plástica de Vitoria<span class="tag">Vitoria-Gasteiz</span></div><div></div></div>
-      <div class="tl-row">
-        <div class="yr">1981</div>
-        <div class="ev">Primera exposición individual, Sala de la Caja Laboral<span class="tag">Gernika</span></div>
-        <img class="thumb-media" src="assets/img/premios-1981.jpg" alt="Primera exposición individual en la Caja Laboral de Gernika, 1981" loading="lazy" decoding="async">
-      </div>
-      <div class="tl-row"><div class="yr">1982</div><div class="ev">XXIII Certamen de Artistas Noveles de Gipuzkoa<span class="tag">Premio</span></div><div></div></div>
-      <div class="tl-row"><div class="yr">1993</div><div class="ev">Premio Bancaixa<span class="tag">Valencia</span></div><div></div></div>
-      <div class="tl-row"><div class="yr">1997</div><div class="ev">Gana el concurso Bilbao Ría 2000 con «A la deriva»<span class="tag">Bilbao</span></div><div></div></div>
-      <div class="tl-row"><div class="yr">2002</div><div class="ev">II Certamen de Escultura Pública, Caja Vital<span class="tag">Premio</span></div><div></div></div>
-      <div class="tl-row"><div class="yr">2005</div><div class="ev">Primer Premio de escultura, 125º aniversario del Colegio de Ingenieros de Caminos del País Vasco</div><div></div></div>
-      <div class="tl-row">
-        <div class="yr">2024</div>
-        <div class="ev">Cartel oficial de la Quincena Musical de San Sebastián<span class="tag">Última obra pública</span></div>
-        <div class="ph thumb"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M3 5h18v14H3z M3 15l5-5 4 4 3-3 6 6"/></svg><span class="path">foto cartel</span></div>
-      </div>
-    </div>
-
-    <div class="colecciones">
-      <h3>Obra en colecciones y espacio público</h3>
-      <div class="chips">
-        <span class="chip">Museo San Telmo · Donostia</span>
-        <span class="chip">Museo Diocesano · Donostia</span>
-        <span class="chip">Museo de Bellas Artes de Bilbao</span>
-        <span class="chip">Artium · Vitoria-Gasteiz</span>
-        <span class="chip">Gobierno Vasco</span>
-        <span class="chip">Diputación de Gipuzkoa</span>
-        <span class="chip">Diputación de Bizkaia</span>
-        <span class="chip">Ayuntamiento de Bilbao</span>
-        <span class="chip">Ayuntamiento de Donostia</span>
-        <span class="chip">Ayuntamiento de Eibar</span>
-        <span class="chip">Ayuntamiento de Lemoa</span>
-        <span class="chip">Museo Nacional de Nicaragua</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ 4 · EXPOSICIONES ============ -->
-<section class="expos reveal" id="expos">
-  <div class="wrap">
-    <div class="section-head">
-      <div class="eyebrow">04 · Exposiciones</div>
-      <h2>Individuales y colectivas</h2>
-    </div>
-
-    <div class="expo-grid">
-      <div class="expo-col">
-        <h3>Individuales</h3>
-        <ul class="expo-list">
-          <li><span class="y">1981</span><span class="p"><b>Caja Laboral</b> — Gernika</span></li>
-          <li><span class="y">1993</span><span class="p"><b>Museo San Telmo</b> — Donostia</span></li>
-          <li><span class="y">2010</span><span class="p"><b>«Formen Dantza»</b>, Alfa Arte — Eibar</span></li>
-          <li><span class="y">2012</span><span class="p"><b>«Fruto terrenal»</b>, Galería Vanguardia — Bilbao</span></li>
-          <li><span class="y">—</span><span class="p">Pamplona · Hondarribia · Errenteria · Salamanca · Madrid · Colonia <em>(por datar)</em></span></li>
-        </ul>
-        <figure class="expo-feature">
-          <img src="assets/img/expo-santelmo-1993.jpg" alt="Exposición individual en el Museo San Telmo, 1993" loading="lazy" decoding="async">
-          <figcaption>Exposición individual · Museo San Telmo, 1993</figcaption>
-        </figure>
-      </div>
-
-      <div class="expo-col">
-        <h3>Colectivas</h3>
-        <ul class="expo-list">
-          <li><span class="y">1992·97·98</span><span class="p"><b>ARCO</b> — Feria Internacional de Arte Contemporáneo, Madrid</span></li>
-          <li><span class="y">años 80</span><span class="p">Bienales de blanco y negro</span></li>
-          <li><span class="y">—</span><span class="p"><em>Resto de colectivas por completar</em></span></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============ 5 · PRENSA ============ -->
-<section class="prensa reveal" id="prensa">
-  <div class="wrap">
-    <div class="section-head">
-      <div class="eyebrow">05 · Prensa</div>
-      <h2>Lo que se ha escrito</h2>
-      <p class="todo" style="color:var(--wire-dim);">Selección inicial de recortes del archivo familiar. Pulsa cualquier tarjeta para ver el documento completo.</p>
-    </div>
-
-    <div class="press-list">
-      <a class="press-card" href="assets/img/prensa/prensa-1986-edorta-kortadi.jpg" target="_blank" rel="noopener">
-        <img class="press-thumb" src="assets/img/prensa/prensa-1986-edorta-kortadi.jpg" alt="Recorte de prensa de 1986 sobre José Zugasti" loading="lazy" decoding="async">
-        <span class="src">Archivo familiar · 1986</span>
-        <span class="head">Crítica de Edorta Kortadi</span>
-        <span class="dek">Recorte digitalizado del archivo de prensa histórico.</span>
+    <div class="home-grid">
+      <a class="home-link" href="biografia.html">
+        <span class="num">01</span>
+        <h3>Biografía</h3>
+        <p>Trayectoria, contexto y ficha de vida.</p>
+        <span class="go">Abrir sección -&gt;</span>
       </a>
-      <a class="press-card" href="assets/img/prensa/prensa-1986-diario-ya.jpg" target="_blank" rel="noopener">
-        <img class="press-thumb" src="assets/img/prensa/prensa-1986-diario-ya.jpg" alt="Recorte del Diario YA de 1986" loading="lazy" decoding="async">
-        <span class="src">Diario YA · 1986</span>
-        <span class="head">Mención en prensa nacional</span>
-        <span class="dek">Publicación sobre su trabajo durante su etapa de consolidación.</span>
+      <a class="home-link" href="obra.html">
+        <span class="num">02</span>
+        <h3>Obra destacada</h3>
+        <p>92 obras entre dibujo, escultura, litografía y obra pública.</p>
+        <span class="go">Abrir sección -&gt;</span>
       </a>
-      <a class="press-card" href="assets/img/prensa/prensa-1986-gac.jpg" target="_blank" rel="noopener">
-        <img class="press-thumb" src="assets/img/prensa/prensa-1986-gac.jpg" alt="Recorte GAC de 1986" loading="lazy" decoding="async">
-        <span class="src">GAC · 1986</span>
-        <span class="head">Artículo sobre obra y proceso</span>
-        <span class="dek">Recorte histórico digitalizado del archivo familiar.</span>
+      <a class="home-link" href="premios.html">
+        <span class="num">03</span>
+        <h3>Premios</h3>
+        <p>Reconocimientos y colecciones donde está presente su obra.</p>
+        <span class="go">Abrir sección -&gt;</span>
       </a>
-      <a class="press-card" href="assets/img/prensa/prensa-1987-egam.jpg" target="_blank" rel="noopener">
-        <img class="press-thumb" src="assets/img/prensa/prensa-1987-egam.jpg" alt="Recorte EGAM de 1987" loading="lazy" decoding="async">
-        <span class="src">EGAM · 1987</span>
-        <span class="head">Reseña crítica de exposición</span>
-        <span class="dek">Documento hemerográfico de finales de los años 80.</span>
+      <a class="home-link" href="exposiciones.html">
+        <span class="num">04</span>
+        <h3>Exposiciones</h3>
+        <p>39 individuales y más de un centenar de colectivas, de 1978 a 2024.</p>
+        <span class="go">Abrir sección -&gt;</span>
       </a>
-      <a class="press-card" href="assets/img/prensa/prensa-2005-el-dia.jpg" target="_blank" rel="noopener">
-        <img class="press-thumb" src="assets/img/prensa/prensa-2005-el-dia.jpg" alt="Recorte del año 2005" loading="lazy" decoding="async">
-        <span class="src">El Día · 2005</span>
-        <span class="head">Cobertura de trayectoria escultórica</span>
-        <span class="dek">Recorte del periodo de madurez de su obra en metal y alambre.</span>
+      <a class="home-link" href="prensa.html">
+        <span class="num">05</span>
+        <h3>Prensa</h3>
+        <p>Recortes del archivo familiar y enlaces públicos.</p>
+        <span class="go">Abrir sección -&gt;</span>
       </a>
-      <a class="press-card" href="assets/img/prensa/prensa-2021-dv-ciclista.jpg" target="_blank" rel="noopener">
-        <img class="press-thumb" src="assets/img/prensa/prensa-2021-dv-ciclista.jpg" alt="Recorte de Diario Vasco sobre El Ciclista" loading="lazy" decoding="async">
-        <span class="src">Diario Vasco · 2021</span>
-        <span class="head">Artículo sobre «El Ciclista»</span>
-        <span class="dek">Noticia centrada en una de sus piezas de obra pública.</span>
-      </a>
-      <a class="press-card" href="assets/img/prensa/prensa-diario-vasco-quincena.jpg" target="_blank" rel="noopener">
-        <img class="press-thumb" src="assets/img/prensa/prensa-diario-vasco-quincena.jpg" alt="Recorte de Diario Vasco sobre desarrollo de la forma y Quincena" loading="lazy" decoding="async">
-        <span class="src">Diario Vasco · Archivo</span>
-        <span class="head">Desarrollo de la forma y Quincena</span>
-        <span class="dek">Recorte relacionado con exposición y contexto musical.</span>
-      </a>
-      <a class="press-card" href="assets/img/prensa/prensa-2024-recorte-22-2-24.jpg" target="_blank" rel="noopener">
-        <img class="press-thumb" src="assets/img/prensa/prensa-2024-recorte-22-2-24.jpg" alt="Recorte de periódico de febrero de 2024" loading="lazy" decoding="async">
-        <span class="src">Prensa local · 2024</span>
-        <span class="head">Presentación del cartel de la Quincena</span>
-        <span class="dek">Recorte del acto de presentación del cartel oficial.</span>
-      </a>
-      <a class="press-card" href="assets/img/prensa/prensa-2024-whatsapp-15-12.jpg" target="_blank" rel="noopener">
-        <img class="press-thumb" src="assets/img/prensa/prensa-2024-whatsapp-15-12.jpg" alt="Recorte compartido en diciembre de 2024" loading="lazy" decoding="async">
-        <span class="src">Archivo familiar · 2024</span>
-        <span class="head">Homenajes y despedidas</span>
-        <span class="dek">Selección de recortes tras su fallecimiento en Donostia.</span>
-      </a>
-      <a class="press-card" href="https://aunamendi.eusko-ikaskuntza.eus/es/zugasti-arizmendiarrieta-jose/ar-152484/" target="_blank" rel="noopener">
-        <span class="src">Auñamendi Entziklopedia</span>
-        <span class="head">Entrada biográfica</span>
-        <span class="dek">Ficha enciclopédica de su vida y obra.</span>
-      </a>
-      <a class="press-card" href="https://www.eibar.eus/es/cultura/noticias/ha-fallecido-el-escultor-eibarres-jose-zugasti-arizmendiarrieta-1952-2024" target="_blank" rel="noopener">
-        <span class="src">Eibar.eus · 2024</span>
-        <span class="head">Nota sobre su fallecimiento</span>
-        <span class="dek">El Ayuntamiento de Eibar despide al escultor.</span>
-      </a>
-      <a class="press-card" href="https://www.quincenamusical.eus/es/carteles/cartel/85-quincena-musical-cartel" target="_blank" rel="noopener">
-        <span class="src">Quincena Musical · 2024</span>
-        <span class="head">Cartel de la 85ª edición</span>
-        <span class="dek">Su último encargo público.</span>
+      <a class="home-link" href="taller.html">
+        <span class="num">06</span>
+        <h3>Taller</h3>
+        <p>Espacio de trabajo y solicitud de visita.</p>
+        <span class="go">Abrir sección -&gt;</span>
       </a>
     </div>
   </div>
 </section>
 
-<!-- ============ 6 · TALLER ============ -->
-<section class="taller reveal" id="taller">
-  <div class="wrap grid">
-    <div>
-      <div class="section-head" style="margin-bottom:0;">
-        <div class="eyebrow">06 · Taller</div>
-        <h2>Donde nacía la línea</h2>
-      </div>
-      <p>El estudio de José en Donostia, con sus herramientas, bocetos y piezas en proceso. Un espacio que la Fundación conserva como parte del legado.</p>
-      <p style="font-family:var(--mono); font-size:0.82rem; color:var(--pine);">Visitas bajo cita previa.</p>
-      <a class="cta" href="mailto:info@josezugasti.com?subject=Visita%20al%20taller">Solicitar visita →</a>
-    </div>
-    <figure>
-      <img src="assets/img/taller.jpg" alt="Taller de José Zugasti en Donostia" loading="lazy" decoding="async">
-    </figure>
-  </div>
-</section>
-
-<!-- ============ CONTACTO ============ -->
 <section class="contacto reveal" id="contacto">
   <div class="wrap">
     <div>
@@ -709,29 +108,10 @@
 </section>
 
 <footer class="credit">
-  <span>JOSÉ ZUGASTI ARIZMENDIARRIETA — EIBAR 1952 · DONOSTIA 2024</span>
+  <span>JOSÉ ZUGASTI ARIZMENDIARRIETA - EIBAR 1952 · DONOSTIA 2024</span>
   <span>SITIO EN CONSTRUCCIÓN · BORRADOR LOCAL</span>
 </footer>
 
-<script>
-  // Mobile nav toggle
-  const navToggle = document.getElementById('navToggle');
-  const navLinks = document.getElementById('navLinks');
-  navToggle.addEventListener('click', () => {
-    navLinks.classList.toggle('open');
-    navToggle.textContent = navLinks.classList.contains('open') ? 'CERRAR' : 'MENÚ';
-  });
-  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-    navLinks.classList.remove('open');
-    navToggle.textContent = 'MENÚ';
-  }));
-
-  // Scroll reveal
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
-  }, { threshold: 0.12 });
-  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
-</script>
-
+<script src="assets/site.js"></script>
 </body>
 </html>
