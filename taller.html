@@ -26,6 +26,7 @@
     <a href="exposiciones.html">Exposiciones</a>
     <a href="prensa.html">Prensa</a>
     <a href="taller.html" class="is-active">Taller</a>
+    <a href="fundacion.html">Fundación</a>
     <a href="#contacto">Contacto</a>
   </nav>
   <button class="nav-toggle" id="navToggle" aria-label="Abrir menú">MENU</button>
@@ -39,15 +40,19 @@
           <div class="eyebrow">06 · Taller</div>
           <h2>Donde nacía la línea</h2>
         </div>
-        <p>El estudio de José en Donostia, con sus herramientas, bocetos y piezas en proceso. Un espacio que la familia conserva como parte del legado, tal y como él lo dejó.</p>
-        <p>Antes de este taller estuvo el de Beraun, en Errenteria, donde trabajó durante los años ochenta y del que procede buena parte del material fotográfico del archivo.</p>
+        <p>El taller de José Zugasti se encuentra en Beraun, Gipuzkoa, en el municipio de Errenteria. Trabajó en él durante 40 años, y es allí donde nació buena parte de su obra escultórica.</p>
+        <p>Hoy el taller es la sede de la Fundación José Zugasti Fundazioa y está abierto al público bajo cita previa.</p>
         <p style="font-family:var(--mono); font-size:0.82rem; color:var(--pine);">Visitas bajo cita previa.</p>
         <a class="cta" href="mailto:info@josezugasti.com?subject=Visita%20al%20taller">Solicitar visita -&gt;</a>
       </div>
       <div class="shots">
         <figure>
-          <img src="assets/img/taller.jpg" alt="Taller de José Zugasti en Donostia-San Sebastián" loading="lazy" decoding="async">
-          <figcaption>El taller de Donostia, con las piezas en proceso</figcaption>
+          <!-- portrait container for a landscape image rotated 90°: width ratio = 1800/1347 ≈ 134% -->
+          <div style="position:relative; overflow:hidden; aspect-ratio:1347/1800; width:100%;">
+            <img src="assets/img/taller.jpg" alt="Taller de José Zugasti en Beraun, Errenteria, Gipuzkoa" loading="lazy" decoding="async"
+              style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%) rotate(90deg); width:134%; max-width:none; height:auto;">
+          </div>
+          <figcaption>El taller de Beraun, Errenteria (Gipuzkoa)</figcaption>
         </figure>
         <figure>
           <img src="assets/img/obra/escultura-1986-taller-beraun.jpg" alt="Esculturas en el taller de Beraun, 1986" loading="lazy" decoding="async">
