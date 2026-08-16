@@ -9,7 +9,7 @@ Build estático (HTML + CSS + JS, sin dependencias ni framework). Publicado en G
 josezugasti/
 ├── index.html            Portada + navegación por apartados
 ├── biografia.html        1 · Biografía
-├── obra.html              2 · Obra destacada (5 galerías: dibujos, evolución a la 3D, litografías, escultura, obra pública)
+├── obra.html              2 · Selección de obra (5 galerías: dibujos, evolución a la 3D, litografías, escultura, obra pública)
 ├── premios.html           3 · Premios y reconocimientos
 ├── exposiciones.html      4 · Exposiciones (individuales y colectivas, listado completo)
 ├── prensa.html             5 · Prensa
@@ -26,7 +26,7 @@ josezugasti/
 ## Apartados del nivel público
 
 1. **Biografía** — texto + fotos (José falleció en Donostia-San Sebastián, no en Eibar).
-2. **Obra destacada** — 92 obras por categoría: Dibujos · Evolución a la 3D · Litografías · Escultura · Obra pública.
+2. **Selección de obra** — 92 obras por categoría: Dibujos · Evolución a la 3D · Litografías · Escultura · Obra pública. (Pendiente: reclasificar a la nueva taxonomía Dibujo · Óleo y pintura matérica · Acrílicos · Grabados y litografías · Escultura cuando haya imágenes de la fase de pintura post-2011.)
 3. **Premios y reconocimientos** — premios, con foto en 1981 y 2024, y colecciones públicas.
 4. **Exposiciones** — 39 individuales y más de un centenar de colectivas (1978-2024), con fotos de sala.
 5. **Prensa** — recortes del archivo familiar y enlaces públicos.
