@@ -185,44 +185,39 @@ section{ padding: clamp(4.5rem,9vw,8rem) 0; }
 .obra .section-head .eyebrow{ color: var(--oxide-dim); }
 .obra .section-head h2{ color: var(--ink); }
 .obra .section-head .num{ color: var(--wire-dim); }
-.cats{ display:grid; grid-template-columns: repeat(auto-fit, minmax(300px,1fr)); gap: 1px; background: var(--canvas-dim); border: 1px solid var(--canvas-dim); }
-.cat{ background: #fff; padding: 2rem 1.8rem; display:flex; flex-direction:column; }
-.cat .icon{ width: 50px; height:50px; margin-bottom: 1.3rem; }
-.cat .icon svg{ width:100%; height:100%; }
-.cat .icon path{ fill:none; stroke: var(--oxide); stroke-width:1.6; stroke-linecap:round; stroke-linejoin:round; }
-.cat h3{ font-size: 1.35rem; font-style: italic; font-weight:500; color: var(--ink); }
-.cat .kind{ font-family: var(--mono); font-size:0.66rem; letter-spacing:0.08em; color: var(--wire-dim); margin: 0.45rem 0 1rem; text-transform: uppercase; }
-.cat p{ font-size:0.92rem; color: #5a5344; margin:0 0 1.2rem; flex-grow:1; }
-.cat .cat-media{
-  margin-top: auto;
-  width: 100%;
-  aspect-ratio: 4 / 3;
-  object-fit: cover;
-  border: 1px solid var(--canvas-dim);
+/* --- Navegacion de categorias, una sola linea, sin tarjetas --- */
+.obra-tabs{
+  display:flex; flex-wrap:wrap; align-items:center; gap: 0.5rem 1.1rem;
+  font-family: var(--mono); font-size:0.78rem; letter-spacing:0.04em;
+  border-top: 1px solid var(--canvas-dim); border-bottom: 1px solid var(--canvas-dim);
+  padding: 1.1rem 0;
 }
-.cat .ph{ margin-top:auto; min-height:120px; }
-.cat a.ref{
+.obra-tabs a{
+  text-decoration:none; color: var(--wire-dim); position:relative; padding-bottom:2px;
+  transition: color .2s ease;
+}
+.obra-tabs a::after{
+  content:""; position:absolute; left:0; right:0; bottom:-3px; height:1px;
+  background: var(--oxide); transform: scaleX(0); transform-origin:left;
+  transition: transform .3s ease;
+}
+.obra-tabs a:hover{ color: var(--ink); }
+.obra-tabs a.is-active{ color: var(--oxide); }
+.obra-tabs a.is-active::after{ transform: scaleX(1); }
+
+a.ref{
   align-self:flex-start; display:inline-flex; align-items:center; gap:0.4em; margin-top:1rem;
   font-family: var(--mono); font-size:0.68rem; letter-spacing:0.05em; text-transform:uppercase;
   color: var(--oxide); text-decoration:none; border-bottom: 1px solid transparent; padding-bottom:1px;
   transition: border-color .25s ease;
 }
-.cat a.ref:hover{ border-color: var(--oxide); }
-.cat a.ref::after{ content:"->"; display:inline-block; transition: transform .25s ease; }
-.cat a.ref:hover::after{ transform: translateX(3px); }
-
-/* --- Tarjeta de categoria como enlace al ancla de su galeria --- */
-a.cat{ text-decoration:none; color:inherit; transition: background .25s ease; }
-a.cat:hover{ background: var(--canvas); }
-a.cat:hover h3{ color: var(--oxide); }
-.cat .go{
-  margin-top:1rem; font-family:var(--mono); font-size:0.66rem; letter-spacing:0.07em;
-  text-transform:uppercase; color:var(--oxide);
-}
-.cat .count{ color: var(--wire-dim); }
+a.ref:hover{ border-color: var(--oxide); }
+a.ref::after{ content:"->"; display:inline-block; transition: transform .25s ease; }
+a.ref:hover::after{ transform: translateX(3px); }
 
 /* --- Galerias de obra --- */
 .obra-cat{ margin-top: clamp(3.5rem,7vw,6rem); scroll-margin-top: 5rem; }
+.obra-cat[hidden]{ display:none; }
 .obra-cat > header{
   display:flex; flex-wrap:wrap; align-items:baseline; gap:0.9rem;
   border-bottom:1px solid var(--canvas-dim); padding-bottom:0.9rem; margin-bottom:1.8rem;
@@ -434,6 +429,9 @@ a.cat:hover h3{ color: var(--oxide); }
 }
 .social a:hover{ color: var(--oxide); padding-left: 0.4rem; }
 .social a span.small{ color: var(--wire-dim); font-size:0.72rem; }
+.social .s-left{ display:flex; align-items:center; gap:0.9rem; }
+.social .ico{ width:18px; height:18px; flex-shrink:0; opacity:0.75; transition: opacity .25s ease; }
+.social a:hover .ico{ opacity:1; }
 
 @media (max-width: 860px){
   .contacto .wrap{ grid-template-columns: 1fr; }

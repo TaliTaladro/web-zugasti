@@ -28,6 +28,51 @@ if ('IntersectionObserver' in window) {
   document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
 }
 
+/* ---------- Pestanas de categoria en Seleccion de obra ---------- */
+(() => {
+  const tabs = Array.from(document.querySelectorAll('.obra-tabs a'));
+  const cats = Array.from(document.querySelectorAll('.obra-cat'));
+  if (!tabs.length || !cats.length) return;
+
+  const showOnly = (id) => {
+    cats.forEach((el) => {
+      el.hidden = !(id === 'todo' || el.id === id);
+    });
+  };
+
+  const setActive = (link) => {
+    tabs.forEach((a) => a.classList.remove('is-active'));
+    if (link) link.classList.add('is-active');
+  };
+
+  const activate = (id, scroll) => {
+    showOnly(id);
+    const link = tabs.find((a) => a.dataset.cat === id);
+    setActive(link);
+    if (scroll) {
+      const target = id === 'todo' ? document.querySelector('.obra-tabs') : document.getElementById(id);
+      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
+  tabs.forEach((a) => {
+    a.addEventListener('click', (e) => {
+      e.preventDefault();
+      const id = a.dataset.cat;
+      activate(id, true);
+      const hash = id === 'todo' ? location.pathname + location.search : '#' + id;
+      history.replaceState(null, '', hash);
+    });
+  });
+
+  const initial = location.hash ? location.hash.slice(1) : null;
+  if (initial && document.getElementById(initial)) {
+    activate(initial, false);
+  } else {
+    cats.forEach((el) => { el.hidden = true; });
+  }
+})();
+
 /* ---------- Lightbox de galerias ---------- */
 (() => {
   const shots = Array.from(document.querySelectorAll('.shot'));
