@@ -154,7 +154,7 @@ section{ padding: clamp(4.5rem,9vw,8rem) 0; }
 /* ============ 1 · BIO ============ */
 .bio{ background: #fff; }
 .bio .grid{ display:grid; grid-template-columns: 1.5fr 1fr; gap: clamp(2rem,5vw,4.5rem); align-items:start; }
-.bio p{ margin: 0 0 1.3rem; font-size:1.04rem; color: #3a352a; }
+.bio p{ margin: 0 0 1.3rem; font-size:1.04rem; color: #3a352a; text-align: justify; text-justify: inter-word; hyphens: auto; }
 .bio p.lead{
   font-family: var(--display); font-style: italic; font-weight:400;
   font-size: clamp(1.35rem,2.4vw,1.7rem); color: var(--ink); line-height:1.45;
